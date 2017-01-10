@@ -65,7 +65,7 @@ title {
   margin: auto;
   text-align: center;
   display: block;
-  padding-top: calc(50vh - 185px);
+  padding-top: calc(50vh - 160px);
 }
 
 .unban-row {
@@ -75,7 +75,7 @@ title {
 }
 
 .unban-time {
-  padding-top: 40px;
+  padding-top: 30px;
   font-size: 30px;
 }
 
