@@ -10,8 +10,6 @@
 
     Compress files and add them to a seperate directory
     
-    Add link to Github repo in corner (github logo with low opacity)
-    
     Add latest Youtube Video as card above YT button + latest tweet above Twitter button (?)
     
 
