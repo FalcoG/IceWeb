@@ -1,6 +1,6 @@
 # IcePoseidon.com
 
-## To-do:
+## To-do(not all set in stone):
 
     Add some kind of logo
 
@@ -11,6 +11,9 @@
     Compress files and add them to a seperate directory
     
     Add link to Github repo in corner (github logo with low opacity)
+    
+    Add latest Youtube Video as card above YT button + latest tweet above Twitter button (?)
+    
 
 ## Note:
     I'm not a web developer/designer - so please excuse me if this is a bit scuffed.
