@@ -1,148 +1,179 @@
 * {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  color: inherit;
-  box-sizing: inherit;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    box-sizing: inherit;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 *:focus {
-  outline: none;
+    outline: none;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #ecf0f1;
-  min-width: 300px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+    background-color: #ecf0f1;
+    min-width: 300px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
 }
 
 h1, h2, h3, h4, h5 {
-  display: block;
-  font-weight: 400;
+    display: block;
+    font-weight: 400;
 }
 
 li, span, p, a, h1, h2, h3, h4, h5 {
-  line-height: 1;
+    line-height: 1;
 }
 
 p {
-  display: block;
+    display: block;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border: 0;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 0;
 }
 
 button {
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
 }
 
 title {
-  display: none;
+    display: none;
 }
 
-.unban-timer {
-  height: calc(50vh - 45px);
-  margin: auto;
-  text-align: center;
-  display: block;
-  padding-top: calc(50vh - 160px);
+.unban-timer, #status {
+    height: calc(50vh - 45px);
+    margin: auto;
+    text-align: center;
+    display: block;
+    padding-top: calc(50vh - 160px);
 }
 
-.unban-row {
-  color: #a8babd;
-  font-family: "Courier New";
-  font-size: 24px;
+.unban-row, #status p {
+    color: #a8babd;
+    font-family: "Courier New", monospace;
+    font-size: 24px;
 }
 
 .unban-time {
-  padding-top: 30px;
-  font-size: 30px;
+    padding-top: 30px;
+    font-size: 30px;
 }
 
 .social-buttons {
-  height: 90px;
-  width: 550px;
-  font-size: 0;
-  margin: auto;
+    height: 90px;
+    width: 550px;
+    font-size: 0;
+    margin: auto;
 }
 
 .social-button {
-  background-color: #fff;
-  height: 90px;
-  width: 90px;
-  margin: 0 10px;
-  text-align: center;
-  opacity: .99;
-  border-radius: 28%;
-  -webkit-transition: all 0.18s;
-  transition: all 0.18s;
+    background-color: #fff;
+    height: 90px;
+    width: 90px;
+    margin: 0 10px;
+    text-align: center;
+    opacity: .99;
+    border-radius: 20%;
+    -webkit-transition: all 0.18s;
+    transition: all 0.18s;
 }
 
 .social-button .fa {
-  font-size: 38px;
-  margin: auto;
+    font-size: 38px;
+    margin: auto;
 }
 
 .social-button.reddit .fa {
-  color: #ff5700;
+    color: #ff5700;
 }
 
 .social-button.twitter .fa {
-  color: #3CF;
+    color: #3CF;
 }
 
 .social-button.youtube .fa {
-  color: #DC4A38;
+    color: #DC4A38;
+}
+
+.social-button.twitch{
+    position: relative;
+}
+
+.social-button.twitch.live:before{
+    position: absolute;
+    bottom: -30px;
+    content: "LIVE";
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    line-height: 22px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.social-button.twitch.live:after{
+    width: 0;
+    height: 5px;
+    position: absolute;
+    content: "";
+    bottom: -8px;
+    left: calc(50% - 5px);
+    border-top-left-radius: 100%;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #ff0202;
 }
 
 .social-button.twitch .fa {
-  color: #6441a4;
+    color: #6441a4;
 }
 
 .social-button.discord .fa {
-  color: #7289da;
+    color: #7289da;
 }
 
 .social-button.reddit:hover {
-  background-color: #ff5700;
+    background-color: #ff5700;
 }
 
 .social-button.twitter:hover {
-  background-color: #3CF;
+    background-color: #3CF;
 }
 
 .social-button.youtube:hover {
-  background-color: #DC4A38;
+    background-color: #DC4A38;
 }
 
 .social-button.twitch:hover {
-  background-color: #6441a4;
+    background-color: #6441a4;
 }
 
 .social-button.discord:hover {
-  background-color: #7289da;
+    background-color: #7289da;
 }
 
 .social-button:hover .fa {
-  color: white;
+    color: white;
 }
