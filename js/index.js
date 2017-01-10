@@ -19,7 +19,7 @@ var formatTime = function(seconds) {
 	delta -= minutes * 60;
 
 	// what's left is seconds
-	var seconds = delta % 60;  // in theory the modulus is not required
+	seconds = delta % 60;  // in theory the modulus is not required
 
 	return (days + "d:" + hours + "h:" + minutes + "m:" + seconds.toString().split(".")[0] + "s")
 };
@@ -34,12 +34,10 @@ function twitch_status(username){
                 try{
                     var response = JSON.parse(xhr.responseText);
 
-                    // null = not live
                     if(response.stream == null){
-                        status_elem.innerHTML = '<p class="col-12">Ice Poseidon is not live</p>';
+                        // If offline, check for ban
                         ban_check(username);
                     }else{
-                        status_elem.innerHTML = '<p class="col-12">Ice Poseidon is live</p>';
                         document.getElementsByClassName('social-button twitch')[0].className += ' live';
                     }
                 }catch(err){
@@ -57,42 +55,32 @@ function twitch_status(username){
 }
 
 function ban_check(username){
-    try {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                var response = JSON.parse(xhr.responseText);
-
-                if(response.error){
-                    // status code 422 means he's banned
-                    if(response.status == 422){
-                        var unban_date = new Date(2017, 1, 1, 0, 0, 0, 0);
-
-                        if(unban_date > Date.now()){ // if latest known unban date is
+    var unban_date = new Date(2017, 1, 1, 0, 0, 0, 0);
+    if(unban_date > Date.now()) {
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.error) {
+                        // status code 422 means he's banned
+                        if (response.status == 422) {
                             status_elem.innerHTML = '<p class="col-12">Ice Poseidon will be unbanned in</p><p class="unban-time col-12">' + formatTime(unban_date - Date.now()) + '</p>';
-                            setInterval(function(){
+                            setInterval(function () {
                                 status_elem.childNodes[1].innerHTML = formatTime(unban_date - Date.now());
                             }, 1000);
-                        }else{
-                            if(unban_date > Date.now() - 86400000){ // 1 day in milliseconds
-                                
-                            }else{
-                                // last known unban date is greater than 1 day
-                                status_elem.innerHTML = '<p class="col-12">Ice Poseidon is possibly banned</p>';
-                            }
                         }
                     }
                 }
-            }
-        };
+            };
 
-        xhr.open('GET', 'https://api.twitch.tv/kraken/channels/' + username, true);
-        xhr.setRequestHeader('Client-ID', config.api_key);
-        xhr.send(null);
-    }catch(err){
-        console.log('Twitch API is unavailable');
+            xhr.open('GET', 'https://api.twitch.tv/kraken/channels/' + username, true);
+            xhr.setRequestHeader('Client-ID', config.api_key);
+            xhr.send(null);
+        } catch (err) {
+            console.log('Twitch API is unavailable');
+        }
     }
-
 }
 
 twitch_status('ice_poseidon');
