@@ -6,7 +6,7 @@
 
     Visual notif when Ice is streaming/live on twitch (embed.ly ?)
 
-    Add responsive design to mobile users
+    Make fully responsive (mobile/browsers)
 
     Compress files and add them to a seperate directory
     
