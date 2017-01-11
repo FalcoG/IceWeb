@@ -177,3 +177,19 @@ title {
 .social-button:hover .fa {
     color: white;
 }
+
+.button-github{
+    -webkit-transition: all 0.18s;
+    opacity: 0.1;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 8px;
+    width: 48px;
+    height: 48px;
+}
+
+.button-github:hover{
+    -webkit-transition: all 0.18s;
+    opacity: 0.6;
+}
